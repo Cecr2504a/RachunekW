@@ -7,17 +7,15 @@ A=[  1  0  0;
      0  1 -1;
      1  0 -1]
 przyr=[2.370,4.718,-8.224,2.909,-1.810]
-Hr1=100,127
-Hr2=115,430
-L=[Hr1+przyr(1),Hr1+przyr(2),Hr1+przyr(3),Hr1+przyr(4),Hr1+przyr(5)]'
-m=[4,4,2,2,4]
+Hr=[100.127,115.430]
+L=-[Hr(1)+przyr(1),przyr(2),Hr(2)+przyr(3),przyr(4),przyr(5)]'
+m=[0.004,0.004,0.002,0.002,0.004]
 mu=[1/m(1)^2,1/m(2)^2,1/m(3)^2,1/m(4)^2,1/m(5)^2]
 P=diag(mu)
 X=-inv(A'*P*A)*(A'*P*L)
 V=A*X+L
 kont=A'*P*V
-t=V'*P*V
-o=V'*P*L
-hwyr=[L(1)+V(1),L(2)+V(2),L(3)+V(3),L(4)+V(4),L(5)+V(5)]
-
+kont2=V'*P*V-V'*P*L
+przyrwyr=[X(1)-Hr(1),X(2)-X(1),X(2)-Hr(2),X(2)-X(3),X(1)-X(3)]
+Hp=[Hr(1)+przyrwyr(1),Hr(2)+przyrwyr(3),Hr(2)+przyrwyr(3)-przyrwyr(4)]
 
