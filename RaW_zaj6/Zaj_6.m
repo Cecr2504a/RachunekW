@@ -20,3 +20,11 @@ Cv=sigma^2*(inv(P)-A*inv(A'*P*A)*A')
 Ch=sigma^2*(A*inv(A'*P*A)*A')
 D=[-1 1]
 Cu=D*Cx*D'
+u=[h(1)+h(2)+h(3); 
+        h(1)-h(2)]
+Dw=[0  2;
+    2 -1]
+Cuw=Dw*Cx*Dw'
+Dw2=[1,1,1;
+     1,-1,0]
+Cuw2=Dw2*Ch*Dw2'
