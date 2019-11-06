@@ -6,7 +6,7 @@ A=[ 1  0;
     0  1]
 Hr=1
 h=[1.04 2.05 3.03]'
-L=h.+Hr
+L=[-Hr;0;-Hr]-h
 uuu=[0.02 0.02 0.04].^(-2)
 P=diag(uuu)
 X=-inv(A'*P*A)*(A'*P*L)
@@ -16,6 +16,7 @@ kont2=V'*P*V-V'*P*L
 [r,n]=size(A)
 sigma=sqrt(V'*P*V/(n-r))
 Cx=sigma^2*inv(A'*P*A)
+mH=sqrt(diag(Cx))
 Cv=sigma^2*(inv(P)-A*inv(A'*P*A)*A')
 Ch=sigma^2*(A*inv(A'*P*A)*A')
 D=[-1 1]
