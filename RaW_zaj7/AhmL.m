@@ -22,7 +22,7 @@ function  [AhmL]=AhmL(Hr,a)
            if c(n,2)>100;
              rep=c(n,2)-100;
              Lr(n,1)=Hr(rep);
-         end
+           end
       end
     A
     assignin('base','A',A)
